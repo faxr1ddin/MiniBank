@@ -1,4 +1,4 @@
-package org.example;
+package org.minibank;
 
 public class Main {
     static void main(String[] args) {
