@@ -23,8 +23,8 @@ public record Transaction(long id, TransactionType type, BigDecimal amount, Curr
         return new Transaction(id, TransactionType.DEPOSIT, amount, currency, LocalDateTime.now(), null, toAccountId, TransactionStatus.COMPLETED);
     }
 
-    public static Transaction withdrawal(long id, BigDecimal amount, Currency currency, String fromAccountId, String toAccountId) {
-        return new Transaction(id, TransactionType.WITHDRAWAL, amount, currency, LocalDateTime.now(), fromAccountId, toAccountId, TransactionStatus.COMPLETED);
+    public static Transaction withdrawal(long id, BigDecimal amount, Currency currency, String fromAccountId) {
+        return new Transaction(id, TransactionType.WITHDRAWAL, amount, currency, LocalDateTime.now(), fromAccountId, null, TransactionStatus.COMPLETED);
     }
 
     public static Transaction transfer(long id, BigDecimal amount, Currency currency, String fromAccountId, String toAccountId) {

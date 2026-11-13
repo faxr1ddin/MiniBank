@@ -1,11 +1,12 @@
 package org.minibank.model;
 
-import lombok.Builder;
+import lombok.Getter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Getter
 @ToString
 public class User {
 

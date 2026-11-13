@@ -1,6 +1,7 @@
 package org.minibank.model;
 
 import lombok.Getter;
+import org.minibank.exception.InsufficientFundsException;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -22,5 +23,12 @@ public class CheckingAccount extends Account {
     @Override
     public BigDecimal getAvailableBalance() {
         return getBalance().add(overdraftLimit);
+    }
+
+    @Override
+    protected void checkWithdrawalAllowed(BigDecimal amount) {
+        if (amount.compareTo(getAvailableBalance()) > 0) {
+            throw new InsufficientFundsException(amount, getAvailableBalance());
+        }
     }
 }
